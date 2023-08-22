@@ -1,11 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
-
-tasks:
-- name: install squashfuse and fuse
-  command: sudo install-packages squashfuse fuse
-- name: enable singularity
-  command: singularity shell --sif-fuse docker://python:3.8.9-slim
+image: registry.hub.docker.com/teambraker/braker3:latest
 
 vscode:
   extensions:
