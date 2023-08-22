@@ -1,0 +1,69 @@
+site_name: TEMPLATE
+edit_uri: https://github.com/bgacademy23/TEMPLATE/blob/main/docs
+
+nav:
+    - Home: README.md
+    - BGA23: https://bga23.org
+
+theme:
+    name: material
+    language: en
+    palette:
+        # Palette toggle for dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          toggle:
+              icon: material/weather-night
+              name: Switch to light mode
+        # Palette toggle for light mode
+        - media: "(prefers-color-scheme: light)"
+          scheme: default
+          toggle:
+              icon: material/weather-sunny
+              name: Switch to dark mode
+    font:
+        text: Inter
+    features:
+        - content.action.edit
+        - content.code.annotate
+        - content.code.copy
+        - navigation.footer
+        # - navigation.tabs
+        - navigation.top
+        - navigation.tracking
+        - search.highlight
+        - search.share
+        - search.suggest
+        - toc.follow
+
+extra:
+    social:
+        - icon: fontawesome/brands/twitter
+          link: https://twitter.com/BGAcademy23
+          name: Biodiversity Genomics Academy 2023 on Twitter
+        - icon: fontawesome/brands/mastodon
+          link: https://genomic.social/@BGAcademy23
+          name: Biodiversity Genomics Academy 2023 on Mastodon - Genomic.Social
+
+markdown_extensions:
+    - admonition
+    - attr_list
+    - md_in_html
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.details
+    - pymdownx.highlight:
+          anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.keys
+    - pymdownx.snippets:
+          base_path: ["."]
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - tables
+    - toc:
+          title: On this page
+          permalink: true
+plugins:
+    - search
