@@ -1,5 +1,12 @@
 image: registry.hub.docker.com/teambraker/braker3:latest
 
+tasks:
+- name: wget viridiplantae odb11 fa.gz
+  init: |
+    mkdir -p /workspace/odb
+    cd /workspace/odb
+    curl https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/Viridiplantae.fa.gz | zcat > Viridiplantae.fa
+
 vscode:
   extensions:
     - anwar.papyrus-pdf
