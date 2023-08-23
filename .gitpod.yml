@@ -5,7 +5,8 @@ tasks:
   init: |
     mkdir -p /workspace/odb
     cd /workspace/odb
-    curl https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/Viridiplantae.fa.gz | zcat > Viridiplantae.fa
+    wget https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/Viridiplantae.fa.gz
+    gunzip Viridiplantae.fa.gz
 
 vscode:
   extensions:
