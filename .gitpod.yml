@@ -7,6 +7,9 @@ tasks:
     cd /workspace/odb
     wget https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/Viridiplantae.fa.gz
     gunzip Viridiplantae.fa.gz
+- name: clear terminal
+  command: |
+    clear
 
 vscode:
   extensions:
