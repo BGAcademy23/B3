@@ -67,7 +67,9 @@ Executing HiSat2 is out of scope for the current session. You find a readily pre
 <details>
   <summary><b>If you want to see how such a file was prepared, click here and read.</b></summary>
   
-We will map the *Arabidopsis thaliana* Illumina RNA-Seq reads from library SRR934391 in files [SRR934391_1.fastq.gz](/home/genomics/workshop_materials/genome_annotation/sra/SRR934391_1.fastq.gz) and [SRR934391_2.fastq.gz](/home/genomics/workshop_materials/genome_annotation/sra/SRR934391_2.fastq.gz). These are paired-end data, i.e. one file contains the forward reads while the other contains in the same order the reverse reads. The length of reads is in this case 100 nt.
+Download SRR934391 from SRA or EBI in fastq format.
+
+We will map the *Arabidopsis thaliana* Illumina RNA-Seq reads from library SRR934391 in files SRR934391_1.fastq.gz and SRR934391_2.fastq.gz. These are paired-end data, i.e. one file contains the forward reads while the other contains in the same order the reverse reads. The length of reads is in this case 100 nt.
 
 We will use HiSat2 ([publication](https://doi.org/10.1038/s41587-019-0201-4), [software](https://github.com/DaehwanKimLab/hisat2)) to align these reads against a chunk of the *Arabidopsis thaliana* genome contained in the file [genome.fa](genome.fa). (You can in principle use any alignment tool capable of aligning RNA-seq reads to a genome, as long as it can perform spliced alignment.)
 
@@ -80,7 +82,7 @@ hisat2-build /opt/BRAKER/example/genome.fa genome-idx 1> hisat2-build.log 2> his
 
 Inspect the log files [hisat2-build.log](hisat2-build.log) and [hisat2-build.err](hisat2-build.err) for possible errors.
 
-Next, we align the RNA-seq reads against the genome. Consider to **not** do this on the free GitPod resources. Performing this alignment took about 7 minutes with 70 threads. The precomputed output file is provided at `/home/genomics/workshop_materials/genome_annotation/sra/SRR934391.sam`, and we will continue to use that pre-computed file.
+Next, we align the RNA-seq reads against the genome. Consider to **not** do this on the free GitPod resources. Performing this alignment took about 7 minutes with 70 threads.
 
 ```
 T=8 # adjust to number of threads that you booted with
