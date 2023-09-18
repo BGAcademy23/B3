@@ -1,5 +1,7 @@
 # Hands-on BRAKER3 Genome Annotation Tutorial
 
+**In VS-Code, press Ctrl+Shift+v to generate Markdown preview.**
+
 Materials for the BRAKER3 workshop within BGAcademy23 by Katharina Hoff (katharina.hoff@uni-greifswald.de).
 
 Please find slides for an introductory talk on genome annotation (with BRAKER and TSEBRA) at [slides_bga_2023.pdf](slides_bga_2023.pdf).
@@ -104,7 +106,7 @@ Careful, above bam file is just an demo example! We will be using a different ba
 
 Structural genome annotation is ideally performed by a combination of a statistical model (e.g. Hidden Markov Model derivate) and extrinsic evidence (e.g. from transcriptomics or known protein sequences). The statistical model parameters have to be adapted to the genomic properties of novel species. For adapting parameters, an initial set of high-quality training genes from the target species is required. This is tricky to obtain. BRAKER is a perl script that comprises several pipelines to automated the solution of this problem: fully automatically generate an initial set of training genes, train gene finders, and then predict genes with the trained parameters and extrinsic evidence.
 
-We will today take an approach to structural genome annotation that takes advantage both of RNA-Seq data, and a large database of known proteins, using BRAKER3 ([preprint](https://doi.org/10.1101/2023.06.10.544449), [software](https://github.com/Gaius-Augustus/BRAKER)). If sufficient transcriptome data is available, then BRAKER3 is usually the best choice of pipeline. However, in the lack of transcriptome data, you may consider alternative BRAKER pipelines that we do not cover, today (e.g. running BRAKER1 with RNA-Seq ([paper](https://doi.org/10.1093/bioinformatics/btv661)) + running BRAKER2 with protein database only ([paper](https://doi.org/10.1093/nargab/lqaa108)) followed by combination with TSEBRA ([paper](https://doi.org/10.1186/s12859-021-04482-0), [software](https://github.com/Gaius-Augustus/TSEBRA)); or in complete lack of RNA-Seq data, running BRAKER2 with proteins only on small genome, or running GALBA ([paper](https://doi.org/10.1186/s12859-023-05449-z)) with proteins of a few reference species on a large genome).
+We will today take an approach to structural genome annotation that takes advantage both of RNA-Seq data, and a large database of known proteins, using BRAKER3 ([preprint](https://doi.org/10.1101/2023.06.10.544449), [software](https://github.com/Gaius-Augustus/BRAKER)). If sufficient transcriptome data is available, then BRAKER3 is usually the best choice of pipeline. However, in the lack of transcriptome data, you may consider alternative BRAKER pipelines that we do not cover, today: running BRAKER1 with RNA-Seq ([paper](https://doi.org/10.1093/bioinformatics/btv661)) + running BRAKER2 with protein database only ([paper](https://doi.org/10.1093/nargab/lqaa108)) followed by combination with TSEBRA ([paper](https://doi.org/10.1186/s12859-021-04482-0), [software](https://github.com/Gaius-Augustus/TSEBRA)); or in complete lack of RNA-Seq data, running BRAKER2 with proteins only on small genome, or running GALBA ([paper](https://doi.org/10.1186/s12859-023-05449-z)) with proteins of a few reference species on a large genome.
 
 ### BRAKER3
 
@@ -131,7 +133,6 @@ time braker.pl --workingdir=BRAKER3 --genome=/opt/BRAKER/example/genome.fa --bam
     --prot_seq=${ORTHODB} --AUGUSTUS_BIN_PATH=/usr/bin/ \
     --AUGUSTUS_SCRIPTS_PATH=/usr/share/augustus/scripts/ --threads ${T} \
     --gm_max_intergenic 10000 --skipOptimize # remember to remove both these options for real jobs!
-    # this call takes a few minutes even with --skipOptimize and --gm_max_intergenic 10000
 ```
 
 This job takes a long time compute, even though it is a toy data set. While it's computing, we can inspect pre-computed results of the same job in the directory `BRAKER3_precomputed_results`.
@@ -145,18 +146,16 @@ cd BRAKER3_precomputed_results
 ls -lh braker.gtf Augustus/augustus.hints.gtf GeneMark-ETP/genemark.gtf
 ```
 
-The file [BRAKER3/what-to-cite.txt](BRAKER3/what-to-cite.txt) advises you on what papers should be cited if you were going to publish a manuscript on a gene set produced with BRAKER1.
+The file [BRAKER3_precomputed_results/what-to-cite.txt](BRAKER3_precomputed_results/what-to-cite.txt) advises you on what papers should be cited if you were going to publish a manuscript on a gene set produced with BRAKER.
 
-Usually, the braker.gtf is the main output. However, because of the way that TSEBRA combines the augustus.hints.gtf and the genemark.gtf file with the hintsfile.gff, this may not be the optimal gene set. We can investigate this by descriptive statistics of gene sets (e.g.~how many genes are in a gene set, how many transcripts, how many exons does an average transcript have?), or we measure sensivity according to a conserved gene set, e.g. BUSCO or OMArk. Running BUSCO and OMArk is covered in other BGA23 sessions. Here, we will only look at preparing the protein files required to run BUSCO:
-
+Usually, the `braker.gtf` is the main output. However, because of the way that TSEBRA combines the `augustus.hints.gtf` and the `genemark.gtf` file with the `hintsfile.gff`, this may not always be the optimal gene set. We can investigate this by descriptive statistics of gene sets (e.g. how many genes are in a gene set, how many transcripts, how many exons does an average transcript have?), or we measure sensivity according to a conserved gene set, e.g. BUSCO or OMArk. Running BUSCO and OMArk is covered in other BGA23 sessions. Here, we will only look at preparing the protein sequence files required to run BUSCO:
 
 ```
-# generate protein (and coding seq file) from AUGUSTUS predictions
-cd BRAKER3/Augustus
-getAnnoFastaFromJoingenes.py -g /opt/BRAKER/example/genome.fa -o augustus.hints -f augustus.hints.gtf
+# AUGUSTUS file exists already
+ls -l Augustus/augustus.hints.aa
 # generate protein (and coding seq file) from GeneMark-ETP predictions
-cd ../GeneMark-ETP
-getAnnoFastaFromJoingenes.py -g /opt/BRAKER/example/genome.fa -o genemark -f genemark.gtf
+cd GeneMark-ETP
+/usr/share/augustus/scripts/getAnnoFastaFromJoingenes.py -g /opt/BRAKER/example/genome.fa -o genemark -f genemark.gtf
 # see file sizes
 cd ../
 ls -lh braker.aa GeneMark-ETP/genemark.aa Augustus/augustus.hints.aa
@@ -167,19 +166,18 @@ grep -c ">" braker.aa GeneMark-ETP/genemark.aa Augustus/augustus.hints.aa
 
 GALBA has a simple script to compute the ratio of mono- to multi-exonic genes (only counting one isoform if one gene has several alternative isoforms, that's why the transcript number differs from the number above for methods that contain alternative transcripts, such as AUGUSTUS and BRAKER):
 
-
 ```
+cd BRAKER3_precomputed_results
 wget https://raw.githubusercontent.com/Gaius-Augustus/GALBA/master/scripts/analyze_exons.py
 chmod u+x analyze_exons.py
-cd BRAKER3
 echo "Computing some descriptive statistics for BRAKER:"
-analyze_exons.py -f braker.gtf
+./analyze_exons.py -f braker.gtf
 echo ""
 echo "Doing the same for Augustus:"
-analyze_exons.py -f Augustus/augustus.hints.gtf
+./analyze_exons.py -f Augustus/augustus.hints.gtf
 echo ""
 echo "And for GeneMark-ETP:"
-analyze_exons.py -f GeneMark-ETP/genemark.gtf
+./analyze_exons.py -f GeneMark-ETP/genemark.gtf
 ```
 
 ### TSEBRA
