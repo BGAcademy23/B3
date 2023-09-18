@@ -1,4 +1,4 @@
-image: registry.hub.docker.com/teambraker/braker3:latest
+image:  registry.hub.docker.com/teambraker/braker3:latest
 
 tasks:
 - name: wget viridiplantae odb11 fa.gz
