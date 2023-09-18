@@ -180,36 +180,6 @@ echo "And for GeneMark-ETP:"
 ./analyze_exons.py -f GeneMark-ETP/genemark.gtf
 ```
 
-### TSEBRA
-
-TSEBRA is a tool for selecting a highly accurate gene set from several input sets according to supporting extrinsic evidence. BRAKER internally executes TSEBRA to combine the GeneMark and the AUGUSTUS gene set. If all went well, you do not have run TSEBRA, separately, at all. However, there are several scenarios where TSEBRA may be useful:
-
-   * you are unhappy with the braker.gtf file of any BRAKER version while the files of AUGSTUS and GeneMark look fine. In this case, the supporting evidence was so weak that too many gene models got discarded during the original TSEBRA run within BRAKER. The solution here is to pick one of the gene sets (e.g. AUGUSTUS if that seems to be the better set)
-   
-   * BRAKER3 failed executing because the provided RNA-Seq data set was too small. In this case, you may wish to combine a BRAKER1 and a BRAKER2 gene set.
-   
-First, we will have a look at how to generally run TSEBRA on the example of merging the BRAKER1 and BRAKER2 gene set according to the respective evidence of these runs:
-
-
-```
-mkdir TSEBRA
-cd TSEBRA
-tsebra.py -g ../BRAKER1/Augustus/augustus.hints.gtf,../BRAKER1/GeneMark-ET/genemark.gtf,../BRAKER2/Augustus/augustus.hints.gtf,../BRAKER2/GeneMark-EP/genemark.gtf \
-    -e ../BRAKER1/hintsfile.gff,../BRAKER2/hintsfile.gff -o tsebra.gtf 2> tsebra.log
-```
-
-If you applied this to a real full genome dataset, you want to see an improvement in the TSEBRA output compared to all the inputs. One option is to compare BUSCO scores. In a real scenario, with a complete genome, the BUSCO plot should look more like this (sensitivity should increase in the final TSEBRA set):
-
-<img src="busco_ideally.png" alt="BUSCO results (ideally)" width="600"/>
-
-As a second example, we will assume that the braker.gtf file of a BRAKER3 run was suboptimal. BUSCO scores and other statistics indicated that the AUGUSTUS gene set alone was quite good, but you want to merge the GeneMark-ETP gene set on top of the AUGUSTUS gene set (keeping all transcripts from the AUGUSTUS gene set). We can do it like this:
-
-
-```
-cd BRAKER3
-tsebra.py -k Augustus/augustus.hints.gtf -g GeneMark-ETP/genemark.gtf \
-    -e hintsfile.gff -o tsebra.gtf 2> tsebra.log
-```
 
 ## Data visualization in the UCSC Genome Browser
 
@@ -311,72 +281,3 @@ We are a small team of developers. We try our best and usually respond to well d
 Please read through the Issues on Github. If the issue does not exist, yet, open an issue.
 
 ### The End
-
-# Appendix
-
-## BRAKER2
-
-BRAKER2 ([paper](https://doi.org/10.1093/nargab/lqaa108)) uses spliced alignment information from a huge database of proteins against the target genome. We typically use OrthoDB partitions of clades, hosted at https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/. Note: a set of proteins from one or a few related species is not sufficient for running BRAKER2. A particular set of proteins of a closely related species can be appended to a larger database for running BRAKER2. However, BRAKER2 is not an ideal tool for recovering a complete set of proteins from a related species.
-
-The following call of BRAKER2 takes ~15 minutes on 4 threads, even when optimizing AUGUSTUS parameters is disabled:
-
-```
-T=8 # adjust to number of threads that you booted with
-
-ORTHODB=/workspace/odb/Viridiplantae.fa # adjust to suitable clade
-
-# delete output from a possible previous run if it exists
-if [ -d BRAKER2 ]
-then
-    rm -rf BRAKER2
-fi
-
-time braker.pl --workingdir=BRAKER2 --genome=/opt/BRAKER/example/genome.fa --prot_seq=${ORTHODB} \
-    --AUGUSTUS_BIN_PATH=/usr/bin/ --AUGUSTUS_SCRIPTS_PATH=/usr/share/augustus/scripts/ --threads ${T} \
-    --gm_max_intergenic 10000 --skipOptimize \ # remember to remove both options if you are running a real job
-    2> braker2.log
-```
-
-The most important output files are:
-
-   * [BRAKER2/braker.gtf](BRAKER2/braker.gtf)
-   * [BRAKER2/Augustus/augustus.hints.gtf](BRAKER2/Augustus/augustus.hints.gtf)
-   * [BRAKER2/GeneMark-EP/genemark.gtf](BRAKER2/GeneMark-EP/genemark.gtf)
-   * [BRAKER2/hintsfile.gff](BRAKER2/hintsfile.gff)
-   
-The file [BRAKER2/what-to-cite.txt](BRAKER2/what-to-cite.txt) advises you on what papers should be cited if you were going to publish a manuscript on a gene set produced with BRAKER2. 
-
-All methods described for BRAKER3 (BUSCO, number of transcripts, mono:mult exon ratio, etc.) are of course applicable to BRAKER2, GALBA, and BRAKER1, as well.
-
-## BRAKER1
-
-Since BRAKER3, the pipeline for input of both RNA-Seq and a large database of proteins achieves usually higher accuracy than BRAKER1 with RNA-Seq, only, BRAKER1 is now rather a pipeline that we may resort to using if BRAKER3 died due to insufficient data. BRAKER1 also requires a certain amount of RNA-Seq alignments but that is less than what is required for transcriptome assembly with StringTie in BRAKER3.
-
-BRAKER1 uses spliced alignment information from RNA-Seq for training GeneMark-ET ([paper](https://doi.org/10.1093/nar/gku557), [software](http://exon.gatech.edu/genemark/license_download.cgi)), for selecting a training gene set for AUGUSTUS, and for predicting genes with AUGUSTUS. 
-
-We will run BRAKER1 to predict genes in the genomic sequence with the prepared RNA-Seq intron evidence. As before, we introduce options to save runtime (see BRAKER3 and BRAKER2) that should not be applied in a real-life annotation project.
-
-
-```
-
-T=8 # adjust to number of threads that you booted with, takes ~2.5 minutes on 4 threads
-
-# delete output from a possible previous run if it exists
-if [ -d BRAKER1 ]
-then
-    rm -rf BRAKER1
-fi
-
-time braker.pl --workingdir=BRAKER1 --genome=/opt/BRAKER/example/genome.fa --bam=/opt/BRAKER/example/RNAseq.bam --softmasking \
-    --AUGUSTUS_BIN_PATH=/usr/bin/ --AUGUSTUS_SCRIPTS_PATH=/usr/share/augustus/scripts/ --threads ${T} \
-    --gm_max_intergenic 10000 --skipOptimize #  remember to remove this option if you are running a real job
-    # this call takes a few minutes even with --skipOptimize
-```
-The most important output files that we will later use for running TSEBRA are 
-
-   * [BRAKER1/braker.gtf](BRAKER1/braker.gtf)
-   * [BRAKER1/Augustus/augustus.hints.gtf](BRAKER1/Augustus/augustus.hints.gtf)
-   * [BRAKER1/GeneMark-EP/genemark.gtf](BRAKER1/GeneMark-EP/genemark.gtf)
-   * [BRAKER1/hintsfile.gff](BRAKER1/hintsfile.gff)
-   
-The file [BRAKER1/what-to-cite.txt](BRAKER1/what-to-cite.txt) advises you on what papers should be cited if you were going to publish a manuscript on a gene set produced with BRAKER1.
