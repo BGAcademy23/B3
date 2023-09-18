@@ -4,7 +4,7 @@
 
 Materials for the BRAKER3 workshop within BGAcademy23 by Katharina Hoff (katharina.hoff@uni-greifswald.de).
 
-Please find slides for an introductory talk on genome annotation (with BRAKER and TSEBRA) at [slides_bga_2023.pdf](slides_bga_2023.pdf).
+Please find slides for an introductory talk on genome annotation (with BRAKER, GALBA, and TSEBRA) at [slides_bga_2023.pdf](slides_bga_2023.pdf).
 
 In the following, we will walk through the process of genome annotation with BRAKER3 on the example of a small proportion of the *Arabidopsis thaliana* genome.
 
@@ -142,7 +142,7 @@ Let's inspect the output, the most important files are braker.gtf, Augustus/augu
 
 
 ```
-cd BRAKER3_precomputed_results
+cd B3/BRAKER3_precomputed_results
 ls -lh braker.gtf Augustus/augustus.hints.gtf GeneMark-ETP/genemark.gtf
 ```
 
@@ -155,7 +155,7 @@ Usually, the `braker.gtf` is the main output. However, because of the way that T
 ls -l Augustus/augustus.hints.aa
 # generate protein (and coding seq file) from GeneMark-ETP predictions
 cd GeneMark-ETP
-/usr/share/augustus/scripts/getAnnoFastaFromJoingenes.py -g /opt/BRAKER/example/genome.fa -o genemark -f genemark.gtf
+getAnnoFastaFromJoingenes.py -g /opt/BRAKER/example/genome.fa -o genemark -f genemark.gtf
 # see file sizes
 cd ../
 ls -lh braker.aa GeneMark-ETP/genemark.aa Augustus/augustus.hints.aa
@@ -167,7 +167,7 @@ grep -c ">" braker.aa GeneMark-ETP/genemark.aa Augustus/augustus.hints.aa
 GALBA has a simple script to compute the ratio of mono- to multi-exonic genes (only counting one isoform if one gene has several alternative isoforms, that's why the transcript number differs from the number above for methods that contain alternative transcripts, such as AUGUSTUS and BRAKER):
 
 ```
-cd BRAKER3_precomputed_results
+cd B3/BRAKER3_precomputed_results
 wget https://raw.githubusercontent.com/Gaius-Augustus/GALBA/master/scripts/analyze_exons.py
 chmod u+x analyze_exons.py
 echo "Computing some descriptive statistics for BRAKER:"
@@ -191,6 +191,7 @@ MakeHub ([paper](https://doi.org/10.1016/j.gpb.2019.05.003), [software](https://
 
 
 ```
+cd /workspace/B3
 T=8 # adjust to number of threads that you booted with
 
 time make_hub.py -e katharina.hoff@uni-greifswald.de \
@@ -198,7 +199,8 @@ time make_hub.py -e katharina.hoff@uni-greifswald.de \
     --short_label at_chunk  --bam /opt/BRAKER/example/RNAseq.bam --threads ${T} \
     --latin_name "Arabidopsis thaliana" \
     --assembly_version "artifically split custom assembly" \
-    --hints BRAKER3/hintsfile.gff --gene_track BRAKER3/braker.gtf BRAKER3
+    --hints BRAKER3_precomputed_results/hintsfile.gff \
+    --gene_track BRAKER3_precomputed_results/braker.gtf BRAKER3
 ```
 
 You can't perform the suggested `scp` command from the apphub, unless you have privileges on a University of Greifswald webserver. We have therefore copied a prepared hub in advance. The `hub.txt` is available at https://bioinf.uni-greifswald.de/hubs/at_chunk/hub.txt . Remember that link.
