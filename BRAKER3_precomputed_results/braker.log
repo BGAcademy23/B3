@@ -1,0 +1,348 @@
+#**********************************************************************************
+#                               BRAKER CONFIGURATION                               
+#**********************************************************************************
+# BRAKER CALL: /opt/BRAKER/scripts/braker.pl --workingdir=BRAKER3 --genome=/opt/BRAKER/example/genome.fa --bam=/opt/BRAKER/example/RNAseq.bam --prot_seq=/workspace/odb/Viridiplantae.fa --AUGUSTUS_BIN_PATH=/usr/bin/ --AUGUSTUS_SCRIPTS_PATH=/usr/share/augustus/scripts/ --threads 8 --gm_max_intergenic 10000 --skipOptimize
+# Mon Sep 18 14:47:58 2023: braker.pl version 3.0.3
+# Mon Sep 18 14:47:58 2023: Creating directory /workspace/B3/BRAKER3.
+# Mon Sep 18 14:47:58 2023: Creating directory /workspace/B3/BRAKER3.
+# Mon Sep 18 14:47:58 2023:Both protein and RNA-Seq data in input detected. BRAKER will be executed in ETP mode (BRAKER3).
+#*********
+# Mon Sep 18 14:47:58 2023: Configuring of BRAKER for using external tools...
+# Mon Sep 18 14:47:58 2023: Trying to set $AUGUSTUS_CONFIG_PATH...
+# Mon Sep 18 14:47:58 2023: Found environment variable $AUGUSTUS_CONFIG_PATH.
+# Mon Sep 18 14:47:58 2023: Checking /usr/share/augustus/config/ as potential path for $AUGUSTUS_CONFIG_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $AUGUSTUS_CONFIG_PATH to /usr/share/augustus/config/!
+# Mon Sep 18 14:47:58 2023: WARNING: in file /opt/BRAKER/scripts/braker.pl at line 1894
+AUGUSTUS_CONFIG_PATH/species (in this case /usr/share/augustus/config//species) is not writeable. BRAKER will try to copy the AUGUSTUS config directory to a writeable location.
+# Mon Sep 18 14:47:58 2023: Trying to set $AUGUSTUS_BIN_PATH...
+# Mon Sep 18 14:47:58 2023: Found command line argument $AUGUSTUS_BIN_PATH.
+# Mon Sep 18 14:47:58 2023: Checking /usr/bin as potential path for $AUGUSTUS_BIN_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $AUGUSTUS_BIN_PATH to /usr/bin!
+# Mon Sep 18 14:47:58 2023: Trying to set $AUGUSTUS_SCRIPTS_PATH...
+# Mon Sep 18 14:47:58 2023: Found command line argument $AUGUSTUS_SCRIPTS_PATH.
+# Mon Sep 18 14:47:58 2023: Checking /usr/share/augustus/scripts as potential path for $AUGUSTUS_SCRIPTS_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $AUGUSTUS_SCRIPTS_PATH to /usr/share/augustus/scripts!
+# Mon Sep 18 14:47:58 2023: WARNING: BRAKER will copy the
+ AUGUSTUS_CONFIG folder into your home directory!
+# Mon Sep 18 14:47:58 2023: WARNING: $AUGUSTUS_CONFIG_PATH/species (in this case /usr/share/augustus/config//species ) is not writeable.
+# Mon Sep 18 14:47:58 2023: copying unwritable augustus config path to writable location
+*** IMPORTANT: Resetting $AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus because BRAKER requires a writable location!
+# Mon Sep 18 14:47:58 2023: Trying to set $PYTHON3_PATH...
+# Mon Sep 18 14:47:58 2023: Did not find environment variable $PYTHON3_PATH.
+# Mon Sep 18 14:47:58 2023: Trying to guess PYTHON3_PATH from location of python3 executable that is available in your $PATH
+# Mon Sep 18 14:47:58 2023: Checking /opt/conda/bin as potential path for $PYTHON3_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $PYTHON3_PATH to /opt/conda/bin!
+# Mon Sep 18 14:47:58 2023: Trying to set $GENEMARK_PATH...
+# Mon Sep 18 14:47:58 2023: Found environment variable $GENEMARK_PATH.
+# Mon Sep 18 14:47:58 2023: Checking /opt/ETP/bin as potential path for $GENEMARK_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $GENEMARK_PATH to /opt/ETP/bin!
+# Mon Sep 18 14:47:58 2023: Trying to set $BAMTOOLS_PATH...
+# Mon Sep 18 14:47:58 2023: Did not find environment variable $BAMTOOLS_PATH.
+# Mon Sep 18 14:47:58 2023: Trying to guess BAMTOOLS_PATH from location of bamtools executable that is available in your $PATH
+# Mon Sep 18 14:47:58 2023: Checking /usr/bin as potential path for $BAMTOOLS_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $BAMTOOLS_PATH to /usr/bin!
+# Mon Sep 18 14:47:58 2023: Trying to set $SAMTOOLS_PATH...
+# Mon Sep 18 14:47:58 2023: Did not find environment variable $SAMTOOLS_PATH.
+# Mon Sep 18 14:47:58 2023: Trying to guess SAMTOOLS_PATH from location of samtools executable that is available in your $PATH
+# Mon Sep 18 14:47:58 2023: Checking /usr/bin as potential path for $SAMTOOLS_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $SAMTOOLS_PATH to /usr/bin!
+# Mon Sep 18 14:47:58 2023: Trying to set $DIAMOND_PATH...
+# Mon Sep 18 14:47:58 2023: Did not find environment variable $DIAMOND_PATH.
+# Mon Sep 18 14:47:58 2023: Trying to guess DIAMOND_PATH from location of diamond executable that is available in your $PATH
+# Mon Sep 18 14:47:58 2023: Checking /opt/ETP/tools as potential path for $DIAMOND_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $DIAMOND_PATH to /opt/ETP/tools!
+# Mon Sep 18 14:47:58 2023: Trying to set $PROTHINT_PATH...
+# Mon Sep 18 14:47:58 2023: Did not find environment variable $PROTHINT_PATH.
+# Mon Sep 18 14:47:58 2023: Trying to guess PROTHINT_PATH from location of prothint.py executable that is available in your $PATH
+# Mon Sep 18 14:47:58 2023: Checking /opt/ETP/bin/gmes/ProtHint/bin as potential path for $PROTHINT_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $PROTHINT_PATH to /opt/ETP/bin/gmes/ProtHint/bin!
+# Mon Sep 18 14:47:58 2023: Trying to set $TSEBRA_PATH...
+# Mon Sep 18 14:47:58 2023: Did not find environment variable $TSEBRA_PATH.
+# Mon Sep 18 14:47:58 2023: Trying to guess TSEBRA_PATH from location of tsebra.py executable that is available in your $PATH
+# Mon Sep 18 14:47:58 2023: Checking /opt/TSEBRA/bin as potential path for $TSEBRA_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $TSEBRA_PATH to /opt/TSEBRA/bin!
+# Mon Sep 18 14:47:58 2023: Trying to set $CDBTOOLS_PATH...
+# Mon Sep 18 14:47:58 2023: Did not find environment variable $CDBTOOLS_PATH.
+# Mon Sep 18 14:47:58 2023: Trying to guess CDBTOOLS_PATH from location of cdbfasta executable that is available in your $PATH
+# Mon Sep 18 14:47:58 2023: Checking /opt/cdbfasta as potential path for $CDBTOOLS_PATH.
+# Mon Sep 18 14:47:58 2023: Success! Setting $CDBTOOLS_PATH to /opt/cdbfasta!
+#*********
+# IMPORTANT INFORMATION: no species for identifying the AUGUSTUS  parameter set that will arise from this BRAKER run was set. BRAKER will create an AUGUSTUS parameter set with name Sp_1. This parameter set can be used for future BRAKER/AUGUSTUS prediction runs for the same species. It is usually not necessary to retrain AUGUSTUS with novel extrinsic data if a high quality parameter set already exists.
+#*********
+#**********************************************************************************
+#                               CREATING DIRECTORY STRUCTURE                       
+#**********************************************************************************
+# Mon Sep 18 14:47:58 2023: creating file that contains citations for this BRAKER run at /workspace/B3/BRAKER3/what-to-cite.txt...
+# Mon Sep 18 14:47:58 2023: create working directory /workspace/B3/BRAKER3/GeneMark-ETP.
+mkdir /workspace/B3/BRAKER3/GeneMark-ETP
+# Mon Sep 18 14:47:58 2023: create working directory /workspace/B3/BRAKER3/species
+mkdir /workspace/B3/BRAKER3/species
+# Mon Sep 18 14:47:58 2023: create working directory /workspace/B3/BRAKER3/errors
+mkdir /workspace/B3/BRAKER3/errors
+# Mon Sep 18 14:47:58 2023: changing into working directory /workspace/B3/BRAKER3
+cd /workspace/B3/BRAKER3
+# Mon Sep 18 14:47:58 2023: getting GC content of the genome
+/opt/BRAKER/scripts/get_gc_content.py --sequences /opt/BRAKER/example/genome.fa --print_sequence_length 1> /workspace/B3/BRAKER3/gc_content.out 2> /workspace/B3/BRAKER3/errors/gc_content.stderr
+# Mon Sep 18 14:47:58 2023: Creating parameter template files for AUGUSTUS with new_species.pl
+# Mon Sep 18 14:47:58 2023: new_species.pl will create parameter files for species Sp_1 in /home/gitpod/.augustus/species/Sp_1
+/usr/bin/perl /usr/share/augustus/scripts/new_species.pl --species=Sp_1 --AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus 1> /dev/null 2>/workspace/B3/BRAKER3/errors/new_species.stderr
+# Mon Sep 18 14:47:58 2023: check_fasta_headers(): Checking fasta headers of file /opt/BRAKER/example/genome.fa
+# Mon Sep 18 14:47:58 2023: check_fasta_headers(): Checking fasta headers of file /workspace/odb/Viridiplantae.fa
+#*********
+# WARNING: Detected whitespace in fasta header of file /workspace/odb/Viridiplantae.fa. This may later on cause problems! The pipeline will create a new file without spaces or "|" characters and a genome_header.map file to look up the old and new headers. This message will be suppressed from now on!
+#*********
+# Mon Sep 18 14:47:58 2023: Assuming that this is not a DNA fasta file because other characters than A, T, G, C, N, a, t, g, c, n were contained. If this is supposed to be a DNA fasta file, check the content of your file! If this is supposed to be a protein fasta file, please ignore this message!
+# Mon Sep 18 14:47:58 2023: Assuming that this is not a protein fasta file because other characters than AaRrNnDdCcEeQqGgHhIiLlKkMmFfPpSsTtWwYyVvBbZzJjOoUuXx were contained. If this is supposed to be DNA fasta file, please ignore this message.
+#**********************************************************************************
+#                              RUNNING GENEMARK-EX                                 
+#**********************************************************************************
+# Mon Sep 18 14:48:13 2023: Preparing genemark_evidence file hints from manual hints...
+# Mon Sep 18 14:48:13 2023: Running GeneMark-ETP
+# Mon Sep 18 14:48:13 2023: changing into GeneMark-ETP directory /workspace/B3/BRAKER3/GeneMark-ETP
+cd /workspace/B3/BRAKER3/GeneMark-ETP
+# Mon Sep 18 14:48:13 2023: sorting RNA-Seq BAM files
+samtools sort /opt/BRAKER/example/RNAseq.bam -o /workspace/B3/BRAKER3/GeneMark-ETP/etp_data/RNAseq.bam 1> /workspace/B3/BRAKER3/errors/samtools.sort.RNAseq.stdout 2> /workspace/B3/BRAKER3/errors/samtools.sort.RNAseq.stderr
+# Mon Sep 18 14:48:33 2023: Running gmetp.pl
+/usr/bin/perl /opt/ETP/bin/gmetp.pl --cfg /workspace/B3/BRAKER3/GeneMark-ETP/etp_config.yaml --workdir /workspace/B3/BRAKER3/GeneMark-ETP --bam /workspace/B3/BRAKER3/GeneMark-ETP/etp_data/ --cores 8 --softmask  1>/workspace/B3/BRAKER3/errors/GeneMark-ETP.stdout 2>/workspace/B3/BRAKER3/errors/GeneMark-ETP.stderr
+# Mon Sep 18 15:16:25 2023: change to working directory /workspace/B3/BRAKER3
+cd /workspace/B3/BRAKER3
+# Mon Sep 18 15:16:25 2023: Getting hints for AUGUSTUS from GeneMark-ETP
+python3 /opt/BRAKER/scripts/get_etp_hints.py --genemark_scripts /opt/ETP/bin --out /workspace/B3/BRAKER3/hintsfile.gff --etp_wdir /workspace/B3/BRAKER3/GeneMark-ETP 1> /workspace/B3/BRAKER3/errors/get_etp_hints.stdout 2> /workspace/B3/BRAKER3/errors/get_etp_hints.stderr
+# Mon Sep 18 15:16:25 2023: Checking for hints of src=C and with grp tags that should not be joined according to multiplicity
+# Mon Sep 18 15:16:25 2023: Joining hints that are identical (& from the same source) into multiplicity hints (input file /workspace/B3/BRAKER3/tmp_merge_hints.gff)
+# Mon Sep 18 15:16:25 2023: sort hints of type all
+cat /workspace/B3/BRAKER3/tmp_merge_hints.gff | sort -n -k 4,4 | sort -s -n -k 5,5 | sort -s -n -k 3,3 | sort -s -k 1,1 >/workspace/B3/BRAKER3/hints.all.temp.sort.gff
+# Mon Sep 18 15:16:25 2023: join multiple hints
+/usr/bin/perl /usr/share/augustus/scripts/join_mult_hints.pl </workspace/B3/BRAKER3/hints.all.temp.sort.gff >/workspace/B3/BRAKER3/tmp_merge_hints.gff 2>/workspace/B3/BRAKER3/errors/join_mult_hints.all.stderr
+cat /workspace/B3/BRAKER3/tmp_merge_hints.gff /workspace/B3/BRAKER3/tmp_no_merge_hints.gff > /workspace/B3/BRAKER3/hintsfile.gff
+# Mon Sep 18 15:16:25 2023: GeneMark-ETP run finished.
+# Mon Sep 18 15:16:25 2023: link GeneMark-ETP training genes to /workspace/B3/BRAKER3/GeneMark-ETP/training.gtf
+ln -s /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/model/training.gtf /workspace/B3/BRAKER3/GeneMark-ETP/training.gtf
+# Mon Sep 18 15:16:25 2023: sorting GeneMark predictions in /workspace/B3/BRAKER3/GeneMark-ETP/training.gtf
+/opt/conda/bin/python3 /opt/BRAKER/scripts/sortGeneMark.py /workspace/B3/BRAKER3/GeneMark-ETP/training.gtf > /workspace/B3/BRAKER3/GeneMark-ETP/training.gtf.sorted 2> /workspace/B3/BRAKER3/errors/sortGeneMark.err
+mv /workspace/B3/BRAKER3/GeneMark-ETP/training.gtf.sorted /workspace/B3/BRAKER3/GeneMark-ETP/training.gtf
+#**********************************************************************************
+#                               TRAIN AUGUSTUS                                     
+#**********************************************************************************
+# Mon Sep 18 15:16:25 2023: training AUGUSTUS
+# Mon Sep 18 15:16:25 2023: creating softlink from /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/model/training.gtf to /workspace/B3/BRAKER3/traingenes.gtf.
+ln -s /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/model/training.gtf /workspace/B3/BRAKER3/traingenes.gtf
+# Mon Sep 18 15:16:25 2023: Converting gtf file /workspace/B3/BRAKER3/traingenes.gtf to genbank file
+# Mon Sep 18 15:16:25 2023: Computing flanking region size for AUGUSTUS training genes
+# Mon Sep 18 15:16:25 2023: create genbank file /workspace/B3/BRAKER3/train.gb
+/usr/bin/perl /usr/share/augustus/scripts/gff2gbSmallDNA.pl /workspace/B3/BRAKER3/traingenes.gtf /workspace/B3/BRAKER3/genome.fa 893 /workspace/B3/BRAKER3/train.gb 2>/workspace/B3/BRAKER3/errors/traingenes.gtf_gff2gbSmallDNA.stderr
+#*********
+# INFORMATION: the size of flanking region used in this BRAKER run is 893. You might need this value if you later add a UTR training on top of an already existing BRAKER run.
+#*********
+# Mon Sep 18 15:16:25 2023: Genbank format file /workspace/B3/BRAKER3/train.gb contains 117 genes.
+# Mon Sep 18 15:16:25 2023: Filtering train.gb for "good" mRNAs:
+/usr/bin/perl /usr/share/augustus/scripts/filterGenesIn_mRNAname.pl /workspace/B3/BRAKER3/traingenes.gtf /workspace/B3/BRAKER3/train.gb > /workspace/B3/BRAKER3/train.f.gb 2>/workspace/B3/BRAKER3/errors/filterGenesIn_mRNAname.stderr
+# Mon Sep 18 15:16:25 2023: Genbank format file /workspace/B3/BRAKER3/train.f.gb contains 117 genes.
+# Mon Sep 18 15:16:25 2023: Running etraining to catch gene structure inconsistencies:
+/usr/bin/etraining --species=Sp_1 --AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus /workspace/B3/BRAKER3/train.f.gb 1> /workspace/B3/BRAKER3/gbFilterEtraining.stdout 2>/workspace/B3/BRAKER3/errors/gbFilterEtraining.stderr
+# Mon Sep 18 15:16:26 2023: Filtering /workspace/B3/BRAKER3/train.f.gb file to remove inconsistent gene structures...
+/usr/bin/perl /usr/share/augustus/scripts/filterGenes.pl /workspace/B3/BRAKER3/etrain.bad.lst /workspace/B3/BRAKER3/train.f.gb 1> /workspace/B3/BRAKER3/train.ff.gb 2>/workspace/B3/BRAKER3/errors/etrainFilterGenes.stderr
+# Mon Sep 18 15:16:26 2023: Genbank format file /workspace/B3/BRAKER3/train.ff.gb contains 117 genes.
+# Mon Sep 18 15:16:26 2023: BLAST or DIAMOND training gene structures against themselves:
+/usr/bin/perl /usr/share/augustus/scripts/aa2nonred.pl /workspace/B3/BRAKER3/traingenes.good.fa /workspace/B3/BRAKER3/traingenes.good.nr.fa --DIAMOND_PATH=/opt/ETP/tools --cores=8 --diamond 1> /workspace/B3/BRAKER3/aa2nonred.stdout 2>/workspace/B3/BRAKER3/errors/aa2nonred.stderr
+# Mon Sep 18 15:16:26 2023: Filtering nonredundant loci into /workspace/B3/BRAKER3/train.fff.gb:
+/usr/bin/perl /usr/share/augustus/scripts/filterGenesIn.pl /workspace/B3/BRAKER3/nonred.loci.lst /workspace/B3/BRAKER3/train.ff.gb 1> /workspace/B3/BRAKER3/train.fff.gb 2>/workspace/B3/BRAKER3/errors/filterGenesIn.stderr
+# Mon Sep 18 15:16:26 2023: Genbank format file /workspace/B3/BRAKER3/train.fff.gb contains 117 genes.
+# Mon Sep 18 15:16:26 2023: Moving /workspace/B3/BRAKER3/train.fff.gb to /workspace/B3/BRAKER3/train.gb:
+mv /workspace/B3/BRAKER3/train.fff.gb /workspace/B3/BRAKER3/train.gb
+# Mon Sep 18 15:16:26 2023: Splitting genbank file into train and test file
+#*********
+# WARNING: Number of reliable training genes is low (117). Recommended are at least 600 genes
+#*********
+/usr/bin/perl /usr/share/augustus/scripts/randomSplit.pl /workspace/B3/BRAKER3/train.gb 39 2>/workspace/B3/BRAKER3/errors/randomSplit.stderr
+# Mon Sep 18 15:16:26 2023: /workspace/B3/BRAKER3/train.gb.test will be used for measuring AUGUSTUS accuracy after training
+# Mon Sep 18 15:16:26 2023: Genbank format file /workspace/B3/BRAKER3/train.gb.test contains 39 genes.
+# Mon Sep 18 15:16:26 2023: Genbank format file /workspace/B3/BRAKER3/train.gb.train contains 78 genes.
+/usr/bin/perl /usr/share/augustus/scripts/randomSplit.pl /workspace/B3/BRAKER3/train.gb.train 39 2>/workspace/B3/BRAKER3/errors/randomSplit.stderr
+# Mon Sep 18 15:16:26 2023: Genbank format file /workspace/B3/BRAKER3/train.gb.train.train contains 39 genes.
+# Mon Sep 18 15:16:26 2023: Genbank format file /workspace/B3/BRAKER3/train.gb.train.test contains 39 genes.
+# Mon Sep 18 15:16:26 2023: /workspace/B3/BRAKER3/train.gb.train.test will be used or measuring AUGUSTUS accuracy during training with optimize_augustus.pl
+ /workspace/B3/BRAKER3/train.gb.train.train will be used for running etraining in optimize_augustus.pl (together with train.gb.train.test)
+ /workspace/B3/BRAKER3/train.gb.train will be used for running etraining (outside of optimize_augustus.pl)
+# Mon Sep 18 15:16:26 2023: Setting value of "stopCodonExcludedFromCDS" in /home/gitpod/.augustus/species/Sp_1/Sp_1_parameters.cfg to "true"
+# Mon Sep 18 15:16:26 2023: first etraining
+/usr/bin/etraining --species=Sp_1 --AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus /workspace/B3/BRAKER3/train.gb.train 1>/workspace/B3/BRAKER3/firstetraining.stdout 2>/workspace/B3/BRAKER3/errors/firstetraining.stderr
+grep -c "exon doesn't end in stop codon" /workspace/B3/BRAKER3/errors/firstetraining.stderr
+# Mon Sep 18 15:16:26 2023: Error rate of missing stop codon is 0.923076923076923
+# Mon Sep 18 15:16:26 2023: The appropriate value for "stopCodonExcludedFromCDS" seems to be "false".
+# Mon Sep 18 15:16:26 2023: Setting value of "stopCodonExcludedFromCDS" in /home/gitpod/.augustus/species/Sp_1/Sp_1_parameters.cfg to "false"
+# Mon Sep 18 15:16:26 2023: Running etraining again
+/usr/bin/etraining --species=Sp_1 --AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus /workspace/B3/BRAKER3/train.gb.train 1>/workspace/B3/BRAKER3/firstetraining.stdout 2>/workspace/B3/BRAKER3/errors/firstetraining.stderr
+# Mon Sep 18 15:16:26 2023: Adjusting stop-codon frequencies in species_parameters.cfg according to /workspace/B3/BRAKER3/firstetraining.stdout
+# Mon Sep 18 15:16:26 2023: Setting frequency of stop codons to tag=0.244, taa=0.321, tga=0.436.
+# Mon Sep 18 15:16:26 2023: First AUGUSTUS accuracy test
+/usr/bin/augustus --species=Sp_1 --AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus /workspace/B3/BRAKER3/train.gb.test 1>/workspace/B3/BRAKER3/firsttest.stdout 2>/workspace/B3/BRAKER3/errors/firsttest.stderr
+# Mon Sep 18 15:16:30 2023: Computing accuracy of AUGUSTUS prediction (in test file derived from predictions on training data set stored in /workspace/B3/BRAKER3/firsttest.stdout)
+# Mon Sep 18 15:16:30 2023: The accuracy after initial training (no optimize_augustus.pl, no CRF) is 0.670066666666667
+# Mon Sep 18 15:16:30 2023: Second etraining
+/usr/bin/etraining --species=Sp_1 --AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus /workspace/B3/BRAKER3/train.gb.train 1>/workspace/B3/BRAKER3/secondetraining.stdout 2>/workspace/B3/BRAKER3/errors/secondetraining.stderr
+# Mon Sep 18 15:16:30 2023: Second AUGUSTUS accuracy test
+/usr/bin/augustus --species=Sp_1 --AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus /workspace/B3/BRAKER3/train.gb.test >/workspace/B3/BRAKER3/secondtest.stdout 2>/workspace/B3/BRAKER3/errors/secondtest.stderr
+# Mon Sep 18 15:16:34 2023: Computing accuracy of AUGUSTUS prediction (in test file derived from predictions on training data set stored in /workspace/B3/BRAKER3/secondtest.stdout)
+# Mon Sep 18 15:16:34 2023: The accuracy after training (after optimize_augustus.pl, no CRF) is 0.670066666666667
+# Mon Sep 18 15:16:34 2023: Copying optimized parameters to working directory /workspace/B3/BRAKER3/species
+cp -r /home/gitpod/.augustus/species/Sp_1 /workspace/B3/BRAKER3/species
+#**********************************************************************************
+#                               PREDICTING GENES WITH AUGUSTUS (NO UTRS)           
+#**********************************************************************************
+# Mon Sep 18 15:16:34 2023: RUNNING AUGUSTUS
+# Mon Sep 18 15:16:34 2023: Preparing genome for running AUGUSTUS in parallel
+# Mon Sep 18 15:16:34 2023: Creating directory for storing AUGUSTUS files (hints, temporarily) /workspace/B3/BRAKER3/genome_split.
+# Mon Sep 18 15:16:34 2023: splitting genome file in smaller parts for parallel execution of AUGUSTUS prediction
+/usr/bin/perl /usr/share/augustus/scripts/splitMfasta.pl /workspace/B3/BRAKER3/genome.fa --outputpath=/workspace/B3/BRAKER3/genome_split 2>/workspace/B3/BRAKER3/errors/splitMfasta.stderr
+cd /workspace/B3/BRAKER3/genome_split; for f in genome.split.*; do NAME=`grep ">" $f`; mv $f ${NAME#>}.fa; done; cd ..
+# Mon Sep 18 15:16:34 2023: Split genome file in 8 parts, finished.
+# Mon Sep 18 15:16:34 2023: copy extrinsic file /opt/BRAKER/scripts/cfg/etp.cfg to working directory
+cp /opt/BRAKER/scripts/cfg/etp.cfg /workspace/B3/BRAKER3/species/Sp_1/ex1.cfg
+# Mon Sep 18 15:16:34 2023: Making AUGUSTUS jobs with hintsfile /workspace/B3/BRAKER3/hintsfile.gff, cfgFile /opt/BRAKER/scripts/cfg/etp.cfg, UTR status off, and hintId hints
+# Mon Sep 18 15:16:34 2023: Creating directory for storing AUGUSTUS files (hints, temporarily) /workspace/B3/BRAKER3/augustus_tmp.
+# Mon Sep 18 15:16:34 2023: creating /workspace/B3/BRAKER3/aug_hints.lst for AUGUSTUS jobs
+# Mon Sep 18 15:16:34 2023: creating AUGUSTUS jobs (with hints)
+cd /workspace/B3/BRAKER3
+/usr/bin/perl /usr/share/augustus/scripts/createAugustusJoblist.pl --sequences=/workspace/B3/BRAKER3/aug_hints.lst --wrap="#!/bin/bash" --overlap=500000 --chunksize=2500000 --outputdir=/workspace/B3/BRAKER3/augustus_tmp --joblist=/workspace/B3/BRAKER3/hints.job.lst --jobprefix=aug_hints_ --partitionHints --command "/usr/bin/augustus --species=Sp_1 --AUGUSTUS_CONFIG_PATH=/home/gitpod/.augustus --extrinsicCfgFile=/opt/BRAKER/scripts/cfg/etp.cfg --alternatives-from-evidence=true --UTR=off --exonnames=on --codingseq=on --allow_hinted_splicesites=gcag,atac  --softmasking=1" 2>/workspace/B3/BRAKER3/errors/createAugustusJoblist_hints.stderr
+cd ..
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS jobs from /workspace/B3/BRAKER3/hints.job.lst
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS job 1
+/workspace/B3/BRAKER3/aug_hints_1
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS job 2
+/workspace/B3/BRAKER3/aug_hints_2
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS job 3
+/workspace/B3/BRAKER3/aug_hints_3
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS job 4
+/workspace/B3/BRAKER3/aug_hints_4
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS job 5
+/workspace/B3/BRAKER3/aug_hints_5
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS job 6
+/workspace/B3/BRAKER3/aug_hints_6
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS job 7
+/workspace/B3/BRAKER3/aug_hints_7
+# Mon Sep 18 15:16:34 2023: Running AUGUSTUS job 8
+/workspace/B3/BRAKER3/aug_hints_8
+# Mon Sep 18 15:17:04 2023: Joining AUGUSTUS predictions in directory /workspace/B3/BRAKER3/augustus_tmp
+# Mon Sep 18 15:17:04 2023: Concatenating AUGUSTUS output files in /workspace/B3/BRAKER3/augustus_tmp
+cat /workspace/B3/BRAKER3/augustus_tmp/5.001.X4.fa.1..125100.gff >> /workspace/B3/BRAKER3/augustus.tmp1.gff
+cat /workspace/B3/BRAKER3/augustus_tmp/8.001.X1.fa.1..125040.gff >> /workspace/B3/BRAKER3/augustus.tmp1.gff
+cat /workspace/B3/BRAKER3/augustus_tmp/7.001.X8.fa.1..124361.gff >> /workspace/B3/BRAKER3/augustus.tmp1.gff
+cat /workspace/B3/BRAKER3/augustus_tmp/6.001.X2.fa.1..125100.gff >> /workspace/B3/BRAKER3/augustus.tmp1.gff
+cat /workspace/B3/BRAKER3/augustus_tmp/1.001.X5.fa.1..125100.gff >> /workspace/B3/BRAKER3/augustus.tmp1.gff
+cat /workspace/B3/BRAKER3/augustus_tmp/2.001.X7.fa.1..125100.gff >> /workspace/B3/BRAKER3/augustus.tmp1.gff
+cat /workspace/B3/BRAKER3/augustus_tmp/4.001.X3.fa.1..125100.gff >> /workspace/B3/BRAKER3/augustus.tmp1.gff
+cat /workspace/B3/BRAKER3/augustus_tmp/3.001.X6.fa.1..125100.gff >> /workspace/B3/BRAKER3/augustus.tmp1.gff
+/usr/bin/perl /usr/share/augustus/scripts/join_aug_pred.pl < /workspace/B3/BRAKER3/augustus.tmp1.gff > /workspace/B3/BRAKER3/augustus.hints.gff
+# Mon Sep 18 15:17:04 2023: Deleting /workspace/B3/BRAKER3/augustus_tmp
+# Mon Sep 18 15:17:04 2023: Deleting /workspace/B3/BRAKER3/augustus.tmp1.gff
+# Mon Sep 18 15:17:04 2023: deleting files from AUGUSTUS parallelization
+rm /workspace/B3/BRAKER3/aug_hints_1
+rm /workspace/B3/BRAKER3/aug_hints_2
+rm /workspace/B3/BRAKER3/aug_hints_3
+rm /workspace/B3/BRAKER3/aug_hints_4
+rm /workspace/B3/BRAKER3/aug_hints_5
+rm /workspace/B3/BRAKER3/aug_hints_6
+rm /workspace/B3/BRAKER3/aug_hints_7
+rm /workspace/B3/BRAKER3/aug_hints_8
+# Mon Sep 18 15:17:04 2023: Making a gtf file from /workspace/B3/BRAKER3/augustus.hints.gff
+cat /workspace/B3/BRAKER3/augustus.hints.gff | /usr/bin/perl -ne 'if(m/\tAUGUSTUS\t/) {print $_;}' | /usr/bin/perl /usr/share/augustus/scripts/gtf2gff.pl --printExon --out=/workspace/B3/BRAKER3/augustus.hints.tmp.gtf 2>/workspace/B3/BRAKER3/errors/gtf2gff.augustus.hints.gtf.stderr
+# Mon Sep 18 15:17:04 2023: Making a fasta file with protein sequences of /workspace/B3/BRAKER3/augustus.hints.gtf
+/opt/conda/bin/python3 /usr/share/augustus/scripts/getAnnoFastaFromJoingenes.py -g /workspace/B3/BRAKER3/genome.fa -f /workspace/B3/BRAKER3/augustus.hints.gtf -o /workspace/B3/BRAKER3/augustus.hints 1> /workspace/B3/BRAKER3/getAnnoFastaFromJoingenes.augustus.hints_tmp.stdout 2>/workspace/B3/BRAKER3/errors/getAnnoFastaFromJoingenes.augustus.hints_tmp.stderr
+# Mon Sep 18 15:17:04 2023: Making a fasta file with protein sequences of /workspace/B3/BRAKER3/augustus.hints.gtf
+/opt/conda/bin/python3 /usr/share/augustus/scripts/getAnnoFastaFromJoingenes.py -g /workspace/B3/BRAKER3/genome.fa -f /workspace/B3/BRAKER3/augustus.hints.gtf -o /workspace/B3/BRAKER3/augustus.hints 1> /workspace/B3/BRAKER3/getAnnoFastaFromJoingenes.augustus.hints_hints.stdout 2>/workspace/B3/BRAKER3/errors/getAnnoFastaFromJoingenes.augustus.hints_hints.stderr
+# Mon Sep 18 15:17:05 2023: AUGUSTUS prediction complete
+# Mon Sep 18 15:17:05 2023: Trying to create merged gene set from GeneMark-EX and AUGUSTUS predictions (braker.gtf/braker.utr.gtf)...
+# Mon Sep 18 15:17:05 2023: Trying to create combined gene set with TSEBRA...
+/opt/TSEBRA/bin/tsebra.py --gtf /workspace/B3/BRAKER3/augustus.hints.gtf,/workspace/B3/BRAKER3/GeneMark-ETP/genemark.gtf --keep_gtf /workspace/B3/BRAKER3/GeneMark-ETP/training.gtf --hintfiles /workspace/B3/BRAKER3/hintsfile.gff --cfg /opt/TSEBRA/bin/../config/braker3.cfg --out /workspace/B3/BRAKER3/braker.gtf -q 2>/workspace/B3/BRAKER3/errors/tsebra.stderr
+mv /workspace/B3/BRAKER3/braker.gtf /workspace/B3/BRAKER3/braker.gtf_temp
+# Mon Sep 18 15:17:05 2023: Making a fasta file with protein sequences of /workspace/B3/BRAKER3/braker.gtf
+/opt/conda/bin/python3 /usr/share/augustus/scripts/getAnnoFastaFromJoingenes.py -g /workspace/B3/BRAKER3/genome.fa -f /workspace/B3/BRAKER3/braker.gtf -o /workspace/B3/BRAKER3/braker 1> /workspace/B3/BRAKER3/getAnnoFastaFromJoingenes.braker_.stdout 2>/workspace/B3/BRAKER3/errors/getAnnoFastaFromJoingenes.braker_.stderr
+# Mon Sep 18 15:17:06 2023: deleting empty files
+# Mon Sep 18 15:17:06 2023: find /workspace/B3/BRAKER3 -empty
+rm /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/nonhc/rna_conflicts.gff
+rm /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/unsupported_noConfl.gtf
+rm /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/unsupported_noConfl_logodds.gtf
+rm /workspace/B3/BRAKER3/errors/find_python3_re.err
+rm /workspace/B3/BRAKER3/errors/find_python3_biopython.err
+rm /workspace/B3/BRAKER3/errors/gc_content.stderr
+rm /workspace/B3/BRAKER3/errors/new_species.stderr
+rm /workspace/B3/BRAKER3/errors/samtools.sort.RNAseq.stdout
+rm /workspace/B3/BRAKER3/errors/get_etp_hints.stdout
+rm /workspace/B3/BRAKER3/errors/get_etp_hints.stderr
+rm /workspace/B3/BRAKER3/errors/join_mult_hints.all.stderr
+rm /workspace/B3/BRAKER3/errors/sortGeneMark.err
+rm /workspace/B3/BRAKER3/errors/traingenes.gtf_gff2gbSmallDNA.stderr
+rm /workspace/B3/BRAKER3/errors/filterGenesIn_mRNAname.stderr
+rm /workspace/B3/BRAKER3/errors/gbFilterEtraining.stderr
+rm /workspace/B3/BRAKER3/errors/etrainFilterGenes.stderr
+rm /workspace/B3/BRAKER3/errors/filterGenesIn.stderr
+rm /workspace/B3/BRAKER3/errors/randomSplit.stderr
+rm /workspace/B3/BRAKER3/errors/firstetraining.stderr
+rm /workspace/B3/BRAKER3/errors/firsttest.stderr
+rm /workspace/B3/BRAKER3/errors/secondetraining.stderr
+rm /workspace/B3/BRAKER3/errors/secondtest.stderr
+rm /workspace/B3/BRAKER3/errors/splitMfasta.stderr
+rm /workspace/B3/BRAKER3/errors/createAugustusJoblist_hints.stderr
+rm /workspace/B3/BRAKER3/errors/gtf2gff.augustus.hints.gtf.stderr
+rm /workspace/B3/BRAKER3/errors/getAnnoFastaFromJoingenes.augustus.hints_tmp.stderr
+rm /workspace/B3/BRAKER3/errors/getAnnoFastaFromJoingenes.augustus.hints_hints.stderr
+rm /workspace/B3/BRAKER3/errors/tsebra.stderr
+rm /workspace/B3/BRAKER3/errors/tsebra_rename.stderr
+rm /workspace/B3/BRAKER3/errors/getAnnoFastaFromJoingenes.braker_.stderr
+rm /workspace/B3/BRAKER3/etrain.bad.lst
+rm /workspace/B3/BRAKER3/getAnnoFastaFromJoingenes.augustus.hints_tmp.stdout
+rm /workspace/B3/BRAKER3/getAnnoFastaFromJoingenes.augustus.hints_hints.stdout
+rm /workspace/B3/BRAKER3/getAnnoFastaFromJoingenes.braker_.stdout
+# Mon Sep 18 15:17:06 2023: deleting job lst files (if existing)
+rm /workspace/B3/BRAKER3/tmp_merge_hints.gff
+rm /workspace/B3/BRAKER3/tmp_no_merge_hints.gff
+rm /workspace/B3/BRAKER3/traingenes.gtf
+rm /workspace/B3/BRAKER3/train.f.gb
+rm /workspace/B3/BRAKER3/gbFilterEtraining.stdout
+rm /workspace/B3/BRAKER3/train.ff.gb
+rm /workspace/B3/BRAKER3/traingenes.good.gtf
+rm /workspace/B3/BRAKER3/traingenes.good.fa
+rm /workspace/B3/BRAKER3/aa2nonred.stdout
+rm /workspace/B3/BRAKER3/traingenes.good.nr.fa
+rm /workspace/B3/BRAKER3/nonred.loci.lst
+rm /workspace/B3/BRAKER3/train.gb.train
+rm /workspace/B3/BRAKER3/train.gb.test
+rm /workspace/B3/BRAKER3/train.gb.train.train
+rm /workspace/B3/BRAKER3/train.gb.train.test
+rm /workspace/B3/BRAKER3/firstetraining.stdout
+rm /workspace/B3/BRAKER3/secondetraining.stdout
+rm /workspace/B3/BRAKER3/aug_hints.lst
+rm /workspace/B3/BRAKER3/hints.job.lst
+rm /workspace/B3/BRAKER3/augustus.hints.tmp.gtf
+/usr/bin/perl /opt/BRAKER/scripts/braker_cleanup.pl --wdir=/workspace/B3/BRAKER3
+Deleting file /workspace/B3/BRAKER3/firsttest.stdout
+Deleting file /workspace/B3/BRAKER3/genome.fa
+Deleting file /workspace/B3/BRAKER3/secondtest.stdout
+Deleting file /workspace/B3/BRAKER3/train.gb
+Deleting file /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/model/set.out
+Deleting file /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/model/parse.es_c
+Deleting file /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/model/non.seq
+Deleting file /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/nonhc/nonhc.fasta
+Deleting file /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/prothint/nuc.fasta
+Deleting file /workspace/B3/BRAKER3/augustus.hints.gff
+Deleting file /workspace/B3/BRAKER3/proteins.fa
+Deleting file /workspace/B3/BRAKER3/braker.gtf_temp
+Deleting file /workspace/B3/BRAKER3/gc_content.out
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/etp_data
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/gmst/
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hisat2/
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/stringtie/
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/arx
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/hc/regions/
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/nonhc/prothint
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/prothint/Spaln
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/nonhc/for_prothint
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/nonhc/pred_m
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/nonhc/regions
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/proteins.fa/etr
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/prothint/diamond
+Deleting directory /workspace/B3/BRAKER3/GeneMark-ETP/data
+#**********************************************************************************
+#                               BRAKER RUN FINISHED                                
+#**********************************************************************************

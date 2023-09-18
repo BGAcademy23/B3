@@ -1,0 +1,256 @@
+18-Sep-23 14:52:08 - INFO: Starting the GMST filtering and classification.
+18-Sep-23 14:52:08 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/gms2hints.pl --tseq /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/stringtie/transcripts_merged.fasta --ggtf /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/stringtie/transcripts_merged.gff                --tgff /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/gmst/transcripts_merged.fasta.gff --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gmstunn3djys.gtf                  
+18-Sep-23 14:52:08 - INFO: Making diamond database from /workspace/B3/BRAKER3/GeneMark-ETP/data/proteins.fa
+18-Sep-23 14:52:08 - INFO: Running the following system call: diamond makedb --in /workspace/B3/BRAKER3/GeneMark-ETP/data/proteins.fa -d /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBf_uwutrv.dmnd
+diamond v2.0.15.153 (C) Max Planck Society for the Advancement of Science
+Documentation, support and updates available at http://www.diamondsearch.org
+Please cite: http://dx.doi.org/10.1038/s41592-021-01101-x Nature Methods (2021)
+
+#CPU threads: 16
+Scoring parameters: (Matrix=BLOSUM62 Lambda=0.267 K=0.041 Penalties=11/1)
+Database input file: /workspace/B3/BRAKER3/GeneMark-ETP/data/proteins.fa
+Opening the database file...  [0s]
+Loading sequences...  [4.79s]
+Masking sequences...  [18.654s]
+Writing sequences...  [0.83s]
+Hashing sequences...  [0.317s]
+Loading sequences...  [4.749s]
+Masking sequences...  [19.88s]
+Writing sequences...  [0.847s]
+Hashing sequences...  [0.303s]
+Loading sequences...  [1.082s]
+Masking sequences...  [11.402s]
+Writing sequences...  [0.208s]
+Hashing sequences...  [0.081s]
+Loading sequences...  [0s]
+Writing trailer...  [0.09s]
+Closing the input file...  [0.007s]
+Closing the database file...  [0.002s]
+
+Database sequences  5310477
+  Database letters  2261205223
+     Database hash  f7a7861514840838c143728fe160828f
+        Total time  63.248000s
+18-Sep-23 14:53:11 - INFO: Preparing complete alternatives for incomplete predictions.
+18-Sep-23 14:53:11 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/gms2hints.pl --tseq /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/stringtie/transcripts_merged.fasta --ggtf /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/stringtie/transcripts_merged.gff                --tgff /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gmstSubsetcph_0cu3.gtf --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gmstu5f0bzz5.gtf                --complete  
+18-Sep-23 14:53:11 - INFO: Classifying incomplete predictions
+18-Sep-23 14:53:11 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/proteins_from_gtf.pl --seq /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta --annot /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gtfFile1ui5sxvc.gtf                --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsvy6i60aw.fasta
+18-Sep-23 14:53:11 - INFO: Running DIAMOND with the query: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsvy6i60aw.fasta
+18-Sep-23 14:53:11 - INFO: Running the following system call: diamond blastp --query /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsvy6i60aw.fasta --db /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBf_uwutrv.dmnd                --outfmt 6 qseqid sseqid pident length positive mismatch                gapopen qstart qend sstart send evalue bitscore qlen slen                --max-target-seqs 25 --more-sensitive > /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondt87vwkrt.out
+18-Sep-23 14:55:40 - INFO: Making diamond database from /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/proteinsgnszxx3s.fasta
+18-Sep-23 14:55:40 - INFO: Running the following system call: diamond makedb --in /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/proteinsgnszxx3s.fasta -d /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBt0v18dgw.dmnd
+diamond v2.0.15.153 (C) Max Planck Society for the Advancement of Science
+Documentation, support and updates available at http://www.diamondsearch.org
+Please cite: http://dx.doi.org/10.1038/s41592-021-01101-x Nature Methods (2021)
+
+#CPU threads: 16
+Scoring parameters: (Matrix=BLOSUM62 Lambda=0.267 K=0.041 Penalties=11/1)
+Database input file: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/proteinsgnszxx3s.fasta
+Opening the database file...  [0s]
+Loading sequences...  [0.003s]
+Masking sequences...  [0.016s]
+Writing sequences...  [0s]
+Hashing sequences...  [0s]
+Loading sequences...  [0s]
+Writing trailer...  [0s]
+Closing the input file...  [0s]
+Closing the database file...  [0s]
+
+Database sequences  1153
+  Database letters  594131
+     Database hash  9913e62a2f2a81dac384351be55531b5
+        Total time  0.021000s
+18-Sep-23 14:55:40 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/proteins_from_gtf.pl --seq /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta --annot /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gmstu5f0bzz5.gtf                --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins0hwf6fqg.fasta
+18-Sep-23 14:55:40 - INFO: Running DIAMOND with the query: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins0hwf6fqg.fasta
+18-Sep-23 14:55:40 - INFO: Running the following system call: diamond blastp --query /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins0hwf6fqg.fasta --db /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBt0v18dgw.dmnd                --outfmt 6 qseqid sseqid pident length positive mismatch                gapopen qstart qend sstart send evalue bitscore qlen slen                --max-target-seqs 0 --more-sensitive > /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamond79yoenhn.out
+18-Sep-23 14:55:41 - INFO: Filtering incomplete predictions
+18-Sep-23 14:55:41 - INFO: Filtering shortened complete predictions
+18-Sep-23 14:55:41 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/proteins_from_gtf.pl --seq /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta --annot /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gtfFiledohxcdx1.gtf                --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsiurmob3s.fasta
+18-Sep-23 14:55:41 - INFO: Running DIAMOND with the query: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsiurmob3s.fasta
+18-Sep-23 14:55:41 - INFO: Running the following system call: diamond blastp --query /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsiurmob3s.fasta --db /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBf_uwutrv.dmnd                --outfmt 6 qseqid sseqid pident length positive mismatch                gapopen qstart qend sstart send evalue bitscore qlen slen                --max-target-seqs 25 --more-sensitive > /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondab2s0rk9.out
+18-Sep-23 14:57:55 - INFO: Filtering complete GMST predictions
+18-Sep-23 14:57:55 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/proteins_from_gtf.pl --seq /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta --annot /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gtfFile0jvi7nzx.gtf                --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsf5fq5op6.fasta
+18-Sep-23 14:57:55 - INFO: Running DIAMOND with the query: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsf5fq5op6.fasta
+18-Sep-23 14:57:55 - INFO: Running the following system call: diamond blastp --query /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinsf5fq5op6.fasta --db /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBf_uwutrv.dmnd                --outfmt 6 qseqid sseqid pident length positive mismatch                gapopen qstart qend sstart send evalue bitscore qlen slen                --max-target-seqs 25 --more-sensitive > /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamond8qhfak3c.out
+18-Sep-23 15:00:54 - INFO: Extending predictions with non 5'-most starts (when supported by proteins) to the 5'-most start.
+18-Sep-23 15:00:54 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/gms2hints.pl --tseq /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/stringtie/transcripts_merged.fasta --ggtf /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/stringtie/transcripts_merged.gff                --tgff /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gmstSubsetxqmqrpmu.gtf --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gmstt_oic_f0.gtf                 --long 
+18-Sep-23 15:00:54 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/proteins_from_gtf.pl --seq /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta --annot /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gmstt_oic_f0.gtf                --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins1ps56vq7.fasta
+18-Sep-23 15:00:54 - INFO: Running DIAMOND with the query: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins1ps56vq7.fasta
+18-Sep-23 15:00:54 - INFO: Running the following system call: diamond blastp --query /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins1ps56vq7.fasta --db /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBf_uwutrv.dmnd                --outfmt 6 qseqid sseqid pident length positive mismatch                gapopen qstart qend sstart send evalue bitscore qlen slen                --max-target-seqs 25 --more-sensitive > /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamond9wb2_9j0.out
+18-Sep-23 15:04:23 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/proteins_from_gtf.pl --seq /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta --annot /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gtfFilep9_akohf.gtf                --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinspeaqa6kj.fasta
+18-Sep-23 15:04:23 - INFO: Running DIAMOND with the query: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinspeaqa6kj.fasta
+18-Sep-23 15:04:23 - INFO: Running the following system call: diamond blastp --query /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteinspeaqa6kj.fasta --db /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBf_uwutrv.dmnd                --outfmt 6 qseqid sseqid pident length positive mismatch                gapopen qstart qend sstart send evalue bitscore qlen slen                --max-target-seqs 25 --more-sensitive > /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondum82cb5p.out
+18-Sep-23 15:07:26 - INFO: Filtering incomplete predictions with no start candidate
+18-Sep-23 15:07:26 - INFO: Running the following system call: /opt/ETP/bin/GeneMarkSTFiltering/proteins_from_gtf.pl --seq /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta --annot /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/gtfFile2g8yeznn.gtf                --out /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins91sovz41.fasta
+18-Sep-23 15:07:26 - INFO: Running DIAMOND with the query: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins91sovz41.fasta
+18-Sep-23 15:07:26 - INFO: Running the following system call: diamond blastp --query /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/queryProteins91sovz41.fasta --db /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondDBf_uwutrv.dmnd                --outfmt 6 qseqid sseqid pident length positive mismatch                gapopen qstart qend sstart send evalue bitscore qlen slen                --max-target-seqs 25 --more-sensitive > /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/tmp/diamondgjpnqdb0.out
+18-Sep-23 15:09:40 - INFO: Selecting representative isoforms.
+18-Sep-23 15:09:40 - INFO: Filtering complete alternative isoforms.
+18-Sep-23 15:09:40 - INFO: Adding reliable genes not fully supported by proteins.
+18-Sep-23 15:09:40 - INFO: Running the following system call: /opt/ETP/bin/gmes/ProtHint/bin/prothint.py /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta /workspace/B3/BRAKER3/GeneMark-ETP/data/proteins.fa                --geneSeeds ./prothint_unsupported/seeds.gtf --workdir ./prothint_unsupported --longGene 30000000                --longProtein 15000000
+ProtHint Version 2.6.0
+Copyright 2019, Georgia Institute of Technology, USA
+
+Please cite
+  - ProtHint: https://doi.org/10.1093/nargab/lqaa026
+  - DIAMOND:  https://doi.org/10.1038/nmeth.3176
+  - Spaln:    https://doi.org/10.1093/bioinformatics/btn460
+
+Called from: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa
+Cmd: /opt/ETP/bin/gmes/ProtHint/bin/prothint.py /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.softmasked.fasta /workspace/B3/BRAKER3/GeneMark-ETP/data/proteins.fa --geneSeeds ./prothint_unsupported/seeds.gtf --workdir ./prothint_unsupported --longGene 30000000 --longProtein 15000000
+
+[Mon Sep 18 15:09:40 2023] Pre-processing protein input
+[Mon Sep 18 15:09:47 2023] Skipping GeneMark-ES, using the supplied gene seeds file instead
+[Mon Sep 18 15:09:47 2023] Translating gene seeds to proteins
+[Mon Sep 18 15:09:47 2023] Translation of seeds finished
+[Mon Sep 18 15:09:47 2023] Running DIAMOND
+diamond v0.9.24.125 | by Benjamin Buchfink <buchfink@gmail.com>
+Licensed under the GNU GPL <https://www.gnu.org/licenses/gpl.txt>
+Check http://github.com/bbuchfink/diamond for updates.
+
+#CPU threads: 16
+Scoring parameters: (Matrix=BLOSUM62 Lambda=0.267 K=0.041 Penalties=11/1)
+Database file: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/prothint_unsupported/protgbmsc6dv
+Opening the database file...  [0.000137s]
+Loading sequences...  [4.61547s]
+Masking sequences...  [38.133s]
+Writing sequences...  [1.54484s]
+Hashing sequences...  [0.304769s]
+Loading sequences...  [4.50729s]
+Masking sequences...  [38.1438s]
+Writing sequences...  [1.54613s]
+Hashing sequences...  [0.297956s]
+Loading sequences...  [1.04403s]
+Masking sequences...  [9.94591s]
+Writing sequences...  [0.440511s]
+Hashing sequences...  [0.080267s]
+Loading sequences...  [1.8e-05s]
+Writing trailer...  [0.113524s]
+Closing the input file...  [3.1e-05s]
+Closing the database file...  [5.1e-05s]
+Database hash = 9e33dd1d748ceef21369675bf561379c
+Processed 5310477 sequences, 2261205223 letters.
+Total time = 100.719s
+diamond v0.9.24.125 | by Benjamin Buchfink <buchfink@gmail.com>
+Licensed under the GNU GPL <https://www.gnu.org/licenses/gpl.txt>
+Check http://github.com/bbuchfink/diamond for updates.
+
+#CPU threads: 16
+Scoring parameters: (Matrix=BLOSUM62 Lambda=0.267 K=0.041 Penalties=11/1)
+Temporary directory: 
+Opening the database...  [5.5e-05s]
+#Target sequences to report alignments for: 25
+Opening the input file...  [3.2e-05s]
+Opening the output file...  [4.6e-05s]
+Loading query sequences...  [2.1e-05s]
+Masking queries...  [0.001065s]
+Building query seed set...  [0.00123s]
+Algorithm: Query-indexed
+Building query histograms...  [0.000799s]
+Allocating buffers...  [3.5e-05s]
+Loading reference sequences...  [3.24968s]
+Building reference histograms...  [0.878558s]
+Allocating buffers...  [4.8e-05s]
+Initializing temporary storage...  [0.010848s]
+Processing query chunk 0, reference chunk 0, shape 0, index chunk 0.
+Building reference index...  [0.876096s]
+Building query index...  [0.002202s]
+Building seed filter...  [0.002455s]
+Searching alignments...  [0.225792s]
+Deallocating buffers...  [1e-05s]
+Opening temporary output file...  [0.000106s]
+Computing alignments...  [0.022024s]
+Deallocating reference...  [0.177795s]
+Loading reference sequences...  [0.411208s]
+Building reference histograms...  [0.067464s]
+Allocating buffers...  [3.4e-05s]
+Initializing temporary storage...  [0.007376s]
+Processing query chunk 0, reference chunk 1, shape 0, index chunk 0.
+Building reference index...  [0.110454s]
+Building query index...  [0.002235s]
+Building seed filter...  [0.001951s]
+Searching alignments...  [0.021133s]
+Deallocating buffers...  [8e-06s]
+Opening temporary output file...  [0.000153s]
+Computing alignments...  [0.012808s]
+Deallocating reference...  [0.022783s]
+Loading reference sequences...  [2.4e-05s]
+Deallocating buffers...  [0.000237s]
+Joining output blocks...  [0.001112s]
+Deallocating queries...  [0.003522s]
+Loading query sequences...  [1.7e-05s]
+Closing the input file...  [2.3e-05s]
+Closing the output file...  [6.9e-05s]
+Closing the database file...  [1.8e-05s]
+Deallocating taxonomy...  [7e-06s]
+Total time = 6.11402s
+Reported 50 pairwise alignments, 50 HSPs.
+2 queries aligned.
+[Mon Sep 18 15:11:34 2023] DIAMOND finished
+[Mon Sep 18 15:11:34 2023] Preparing pairs for alignments
+[Mon Sep 18 15:11:34 2023] Preparation of pairs finished
+[Mon Sep 18 15:11:34 2023] Starting spliced alignment with spaln
+[Mon Sep 18 15:11:34 2023] Loading alignment pairs into memory
+[Mon Sep 18 15:11:40 2023] Pairs loaded. Number of pairs to align: 50
+[Mon Sep 18 15:11:40 2023] Starting the alignments
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 0/50 (0.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 1/50 (2.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 2/50 (4.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 3/50 (6.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 4/50 (8.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 5/50 (10.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 6/50 (12.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 7/50 (14.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 8/50 (16.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 9/50 (18.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 10/50 (20.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 11/50 (22.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 12/50 (24.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 13/50 (26.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 14/50 (28.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 15/50 (30.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 16/50 (32.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 17/50 (34.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 18/50 (36.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 19/50 (38.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 20/50 (40.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 21/50 (42.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 22/50 (44.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 23/50 (46.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 24/50 (48.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 25/50 (50.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 26/50 (52.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 27/50 (54.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 28/50 (56.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 29/50 (58.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 30/50 (60.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 31/50 (62.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 32/50 (64.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 33/50 (66.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 34/50 (68.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 35/50 (70.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 36/50 (72.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 37/50 (74.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 38/50 (76.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 39/50 (78.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 40/50 (80.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 41/50 (82.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 42/50 (84.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 43/50 (86.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 44/50 (88.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 45/50 (90.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 46/50 (92.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 47/50 (94.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 48/50 (96.0%)
+[Mon Sep 18 15:11:40 2023] Enqueueing pair 49/50 (98.0%)
+[Mon Sep 18 15:11:41 2023] 50/50 (100%) pairs aligned
+[Mon Sep 18 15:11:41 2023] Alignment of pairs finished
+[Mon Sep 18 15:11:41 2023] Translating coordinates from local pair level to contig level
+[Mon Sep 18 15:11:42 2023] Finished spliced alignment
+[Mon Sep 18 15:11:42 2023] Flagging top chains
+[Mon Sep 18 15:11:42 2023] Processing the output
+[Mon Sep 18 15:11:42 2023] Output processed
+[Mon Sep 18 15:11:42 2023] ProtHint finished.
+18-Sep-23 15:11:42 - INFO: Removing ProtHint-conflicting prediction in the unsupported gene set.
+18-Sep-23 15:11:42 - INFO: Deleting temporary files.
+18-Sep-23 15:11:43 - INFO: GMST filtering and classification finished.
