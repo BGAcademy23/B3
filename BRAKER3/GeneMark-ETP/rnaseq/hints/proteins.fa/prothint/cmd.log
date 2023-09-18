@@ -1,0 +1,3 @@
+Called from: /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/hints/proteins.fa/prothint
+Cmd: /opt/ETP/bin/gmes/ProtHint/bin/prothint.py --geneSeeds /workspace/B3/BRAKER3/GeneMark-ETP/rnaseq/gmst/genome_gmst.gtf /workspace/B3/BRAKER3/GeneMark-ETP/data/genome.fasta /workspace/B3/BRAKER3/GeneMark-ETP/data/proteins.fa --longGene 30000000 --longProtein 15000000
+
