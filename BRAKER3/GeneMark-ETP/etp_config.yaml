@@ -1,7 +1,0 @@
----
-RepeatMasker_path: ''
-annot_path: ''
-genome_path: /workspace/B3/BRAKER3/genome.fa
-protdb_path: /workspace/B3/BRAKER3/proteins.fa
-rnaseq_sets: [RNAseq]
-species: Sp_1
