@@ -118,7 +118,8 @@ Training AUGUSTUS for a novel species usually comprises a step called etraining 
 
 
 ```
-T=8 # adjust to number of threads that you booted with, takes ~30 minutes with 4 threads
+T=8 # adjust to number of threads that you booted with, takes ~30 minutes with 8 threads with the real OrthoDB parition
+    # it takes ~5 minutes with the artificial small protein database
 
 # delete output from a possible previous run if it exists
 if [ -d BRAKER3 ]
@@ -126,7 +127,15 @@ then
     rm -rf BRAKER3
 fi
 
-ORTHODB=/workspace/odb/Viridiplantae.fa # adjust to suitable clade
+# In reality, you should definitely use a large database, e.g. an OrthoDB paritition. You can do this here,
+# just uncomment the following line and comment the one after. We recommend taking a much smaller file that
+# was designed specifically for testing the BRAKER3 pipeline because runtime with the smaller file is
+# shorter than with a real OrthoDB paritition. It is important - in reality - that you have a certain amount
+# of redundancy in your protein database. Otherwise, GeneMark-ETP will not finish.
+# ORTHODB=/workspace/odb/Viridiplantae.fa # adjust to suitable clade
+ORTHODB=/opt/BRAKER/example/proteins.fa # artificial small protein database for short runtime in demo
+# Parititioned OrthoDB clades for running BRAKER are available for download from 
+# https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/
 
 # run BRAKER3
 time braker.pl --workingdir=BRAKER3 --genome=/opt/BRAKER/example/genome.fa --bam=/opt/BRAKER/example/RNAseq.bam \
@@ -253,6 +262,10 @@ The flag `--cleanenv` makes sure that other environment variables/tools (e.g. Pe
 :bomb: The Docker container that is the foundation of this Singularity image file contains a license key for GeneMark-ETP that has an (unknown) expiration date (probably expiring less than a year from now). By using BRAKER1, BRAKER2, or BRAKER3 with any version of GeneMark-ES/ET/EP/ETP/S-T, you agree to the license terms of GeneMark-ES/ET/EP/ETP/S-T (terms available at http://exon.gatech.edu/GeneMark/license_download.cgi). If you want to use BRAKER1, BRAKER2, or BRAKER3 after the expiration date of the license key, we recommend that you update the official BRAKER container available from https://hub.docker.com/r/teambraker/braker3.
 
 ## Troubleshooting
+
+### BRAKER3 died with my data, what shall I do?
+
+BRAKER3 requires both substantial RNA-Seq data (that assembles well into transcripts) and a large database of proteins as input. In addition, genome assembly quality can play a role (if the genome is highly fragmented, genome guided transcriptome assembly may not yield expected results). If BRAKER3 does not run on your data, please run instead BRAKER1 and BRAKER2, separately. BRAKER1 requires less RNA-Seq data to succeed. If both jobs finish, combine the resulting gene sets with TSEBRA. If only BRAKER2 finished, that will be your final gene set. If both die, check whether close relatives of your species have already been annotated. If possible, concatenate reference proteomes of a couple of close relatives and run GALBA. GALBA requires less protein data than BRAKER2, but the proteins should be comparably close to the target species.
 
 ### I have 80.000 genes predicted by BRAKER/TSEBRA in a full genome, what shall I do?
 

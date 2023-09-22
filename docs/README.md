@@ -47,3 +47,9 @@ Participants are expected to have previous experience using Bash.
     Please also read the description carefully to see if this session is relevant to you.
     
     If you don't meet the prerequisites or change your mind based on the description or are no longer available at the session time, please email tol-training at sanger.ac.uk to cancel your slot so that someone else on the waitlist might attend.
+
+## Workshop Materials
+
+All Workshop materials are available at https://github.com/BGAcademy23/B3/tree/main .
+
+The workshop will begin with a talk on which we will explain the key concepts underlying BRAKER and GALBA. Slides can be found at https://github.com/BGAcademy23/B3/blob/main/slides_bga_2023.pdf . Subsequently, we will walk through a BRAKER3 tutorial, documented in https://github.com/BGAcademy23/B3/blob/main/tutorial.md .
